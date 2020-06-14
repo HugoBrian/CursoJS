@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministério da Fazenda</title>
+</head>
+<body>
+    <h1>Sistema de Nacionalidades</h1>
+    <input type="text" id="pais">
+    <input type="button" value="Verificar" onclick="conferir()">
+    <div id="res">
+
+    </div>
+    <script>
+        function conferir(){
+            var pais = window.document.getElementById('pais')
+            var resposta = window.document.querySelector('div#res')
+            resposta.innerHTML = `<p>Tu mora no ${pais.value}</p>`
+            if (pais.value == "Brasil") {
+                resposta.innerHTML += `<p>Você é <strong>Brasileiro</strong> meu cumpadi!</p>`
+            } else {
+                resposta.innerHTML += `<p>Você é da griga zé mané</p>`
+            }
+        }
+    </script>
+</body>
+</html>

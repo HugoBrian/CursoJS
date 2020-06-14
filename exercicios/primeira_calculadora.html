@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+        body{
+            background-color: rgba(25, 160, 119, 0.623);
+            color: black;
+            font: normal 15pt Arial ;
+        }
+        h1{
+            font: normal 25pt Arial;
+            color: black;
+        }
+        input{
+            margin-top: 5pt;
+            margin-right: 2pt;
+            width: 50pt;
+            height: 20pt;
+            background-color: rgba(14, 61, 47, 0.623);
+            color: white;
+        }
+        section#quadro{
+            text-align: center;
+            background: rgb(210, 244, 247);
+            border-radius: 15px;
+            padding: 15px;
+            width: 300pt;
+            margin: auto;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.979);
+            
+        }
+        h2#resultado{
+    
+        }
+        footer{
+            padding-top: 10pt;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-style: italic;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <section id="quadro">
+
+    <h1>Calculadora Simples</h1>
+    <h2 id="resultado"> <br></h2>
+    <input type="button" id="in1" value="1">
+    <input type="button" id="in2" value="2">
+    <input type="button" id="in3" value="3">
+    <input type="button" id="insoma" value="+"> <br/>
+    <input type="button" id="in4" value="4">
+    <input type="button" id="in5" value="5">
+    <input type="button" id="in6" value="6">
+    <input type="button" id="insub" value="-"> <br/>
+    <input type="button" id="in7" value="7">
+    <input type="button" id="in8" value="8">
+    <input type="button" id="in9" value="9">
+    <input type="button" id="inmult" value="x"><br/>
+    <input type="button" id="inc" value="c">
+    <input type="button" id="in0" value="0">
+    <input type="button" id="inres" value="=">
+    <input type="button" id="indiv" value="/">
+    
+    </section>
+
+    <footer>&copy;Hugo Brian</footer>
+    
+    <script>
+        var op1 = ''
+        var op2 = ''
+        var r = ''
+        var operacao = ''
+        var x = window.document.getElementById('resultado')
+        var b1 = window.document.getElementById('in1')
+        b1.addEventListener('click', click1)
+        var b2 = window.document.getElementById('in2')
+        b2.addEventListener('click', click2)
+        var b3 = window.document.getElementById('in3')
+        b3.addEventListener('click', click3)
+        var b4 = window.document.getElementById('in4')
+        b4.addEventListener('click', click4)
+        var b5 = window.document.getElementById('in5')
+        b5.addEventListener('click', click5)
+        var b6 = window.document.getElementById('in6')
+        b6.addEventListener('click', click6)
+        var b7 = window.document.getElementById('in7')
+        b7.addEventListener('click', click7)
+        var b8 = window.document.getElementById('in8')
+        b8.addEventListener('click', click8)
+        var b9 = window.document.getElementById('in9')
+        b9.addEventListener('click', click9)
+        var bres = window.document.getElementById('inres')
+        bres.addEventListener('click', clickres)
+        var bsoma = window.document.getElementById('insoma')
+        bsoma.addEventListener('click', soma)
+        var bsub = window.document.getElementById('insub')
+        bsub.addEventListener('click', sub)
+        var bmult = window.document.getElementById('inmult')
+        bmult.addEventListener('click', mult)
+        var bdiv = window.document.getElementById('indiv')
+        bdiv.addEventListener('click', div)
+        var bc = window.document.getElementById('inc')
+        bc.addEventListener('click', limpar)
+        var b0 = window.document.getElementById('in0')
+        b0.addEventListener('click', click0)
+
+        function click0() {
+            if (operacao=='') {
+                op1 += '0' 
+            }
+            else{
+                op2 += '0'
+            }
+            
+            x.innerText = x.textContent + '0'
+        }
+        function click1(){
+            if (op2 != '') {
+                clickres()
+                return
+            }
+            if (operacao=='') {
+                op1 += '1' 
+            }
+            else{
+                op2 += '1'
+            }
+            
+            x.innerText = x.textContent + '1'
+        } 
+        function click2(){
+            if (operacao=='') {
+                op1 += '2';
+            }
+            else{
+                op2 += '2';
+            }
+            x.innerText = x.textContent + '2'
+        } 
+        function click3(){
+            if (operacao=='') {
+                op1 += '3'
+            }
+            else{
+                op2 += '3'
+            }
+            x.innerText = x.textContent + '3'
+        } 
+        function click4(){
+            if (operacao=='') {
+                op1 += '4'
+            }
+            else{
+                op2 += '4'
+            }
+            x.innerText = x.textContent + '4'
+        }
+        function click5(){
+            if (operacao=='') {
+                op1 += '5'
+            }
+            else{
+                op2 += '5'
+            }
+            x.innerText = x.textContent + '5'
+        }
+        function click6(){
+            if (operacao=='') {
+                op1 += '6'
+            }
+            else{
+                op2 += '6'
+            }
+            x.innerText = x.textContent + '6'
+        } 
+        function click7(){
+            if (operacao=='') {
+                op1 += '7'
+            }
+            else{
+                op2 += '7'
+            }
+            x.innerText = x.textContent + '7'
+        } 
+        function click8(){
+            if (operacao=='') {
+                op1 += '8'
+            }
+            else{
+                op2 += '8'
+            }
+            x.innerText = x.textContent + '8'
+        } 
+        function click9(){
+            if (operacao=='') {
+                op1 += '9'
+            }
+            else{
+                op2 += '9'
+            }
+            x.innerText = x.textContent + '9'
+        }   
+        function soma(){
+            operacao = '+'
+            x.innerText = x.textContent + ' + '
+        }
+        function sub(){
+            operacao = '-'
+            x.innerText = x.textContent + ' - '
+        }
+        function mult(){
+            operacao = '*'
+            x.innerText = x.textContent + ' * '
+        }
+        function div(){
+            operacao = '/'
+            x.innerText = x.textContent + ' / '
+        }
+        function clickres(){
+            if (operacao == '+') {
+                r = Number(op1)+Number(op2)
+            }
+            if (operacao == '-') {
+                r = op1-op2
+            }
+            if (operacao == '*') {
+                r = op1*op2
+            }
+            if (operacao == '/') {
+                r = op1/op2
+            }
+            x.innerText += ` = ${r}`
+
+            op1 = r
+            op2 = ''
+        }
+        function limpar(){
+            op1 = ''
+            op2 = ''
+            r = ''
+            operacao = ''
+            x = window.document.getElementById('resultado')
+            x.innerHTML = '<br/> '
+        }
+    </script>
+
+</body>
+</html>
